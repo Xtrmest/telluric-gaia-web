@@ -1,0 +1,10 @@
+{
+  "name": "telluric-gaia-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:frontend": "npm --prefix frontend install --legacy-peer-deps",
+    "start": "npm --prefix frontend start",
+    "build": "node -e \"const fs=require('fs'),cp=require('child_process'); if(!fs.existsSync('frontend/node_modules')){cp.execSync('npm --prefix frontend install --legacy-peer-deps',{stdio:'inherit'});}\" && npm --prefix frontend run build && node -e \"const fs=require('fs'); if(fs.existsSync('frontend/build')){fs.cpSync('frontend/build','build',{recursive:true}); fs.cpSync('frontend/build','dist',{recursive:true});}\""
+  }
+}

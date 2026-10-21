@@ -1,0 +1,157 @@
+{
+  "brand_identity": {
+    "brand_name": "Telluric Gaia Apparel Lab Inc.",
+    "tagline": "Bio-Synthetic Tactical Wear & Thermochromic Material Science",
+    "design_archetype": "Bio-Synthetic Tactical Minimalism (Dark Tech-Forward)",
+    "aesthetic_concept": "High-density cyber-tactical layout fused with organic material telemetry. Pitch obsidian slate surfaces layered with crisp 1px borders, thermochromic heat-reacting accents (Cyan #00F2FE <-> Thermal Amber #FF5E36), and technical data overlays."
+  },
+  "typography": {
+    "headline_font": "Syne, Barlow Condensed, or Outfit (font-sans font-black tracking-tight)",
+    "body_font": "Plus Jakarta Sans or DM Sans (font-sans)",
+    "mono_accent_font": "JetBrains Mono or Space Mono (font-mono tracking-widest uppercase)",
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter uppercase",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase",
+      "h3": "text-xl sm:text-2xl font-semibold tracking-normal",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-sm sm:text-base leading-relaxed text-slate-300",
+      "caption_label": "text-xs font-mono uppercase tracking-[0.2em] text-cyan-400/80"
+    }
+  },
+  "colors": {
+    "mode": "dark",
+    "theme_palette": {
+      "background_void": "#07080C",
+      "surface_card": "#0F1117",
+      "surface_card_hover": "#171A23",
+      "border_subtle": "#1E2330",
+      "border_active": "#2A3245",
+      "text_primary": "#F1F5F9",
+      "text_secondary": "#94A3B8",
+      "text_muted": "#64748B",
+      "thermochromic_cold_cyan": "#00F2FE",
+      "thermochromic_heat_amber": "#FF5E36",
+      "bio_hemp_emerald": "#10B981",
+      "bamboo_titanium": "#38BDF8",
+      "danger_red": "#EF4444"
+    },
+    "gradients": {
+      "thermochromic_shift": "bg-gradient-to-r from-[#00F2FE] via-[#38BDF8] to-[#FF5E36]",
+      "card_overlay": "bg-gradient-to-t from-[#07080C] via-[#07080C]/60 to-transparent",
+      "glow_cyan": "drop-shadow-[0_0_12px_rgba(0,242,254,0.35)]",
+      "glow_amber": "drop-shadow-[0_0_12px_rgba(255,94,54,0.35)]"
+    }
+  },
+  "layout_and_spacing": {
+    "container_padding": "px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto",
+    "section_spacing": "py-16 sm:py-24 space-y-16",
+    "card_padding": "p-6 sm:p-8",
+    "grid_modes": {
+      "bento_hero": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8",
+      "catalog_grid": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6",
+      "tech_pack_grid": "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+    }
+  },
+  "thermochromic_feature_spec": {
+    "concept": "Simulated dynamic thermal reaction. Users can toggle heat activation states (Cold/Neutral/Activated 37°C/Overheat) or hover over products to view real-time thermochromic color shifts.",
+    "ui_controls": "Include a persistent or header 'Temperature Trigger Simulator' slider/toggle (e.g., [20°C Ambient] <-> [37°C Body Heat]) that live-switches accent hues across fabric badges, details, and heat-map product overlays."
+  },
+  "key_components_architecture": {
+    "Header_Navigation": {
+      "style": "Sticky top-0 z-50 backdrop-blur-2xl bg-[#07080C]/80 border-b border-[#1E2330]",
+      "elements": [
+        "Brand Logo 'TELLURIC GAIA // LABS'",
+        "Nav Links: [COLLECTIONS, CATALOG, LAB SPEC (ABOUT), SUSTAINABILITY, ADMIN]",
+        "Thermochromic Temp Controller Trigger Widget",
+        "Search Trigger, Account/Auth Modal Trigger, Shopping Cart Slide-out Trigger with active item badge"
+      ]
+    },
+    "Hero_Section": {
+      "layout": "Asymmetric Bento split. Left (col-span-7): High-impact headline, live thermal palette indicator, CTAs [EXPLORE CATALOG, READ ECO REVIEW]. Right (col-span-5): Dynamic thermochromic product model card with heat-activation toggle."
+    },
+    "Product_Catalog": {
+      "filters": [
+        "Material Type (Hemp Canvas, Bamboo Micro-Knit, Thermochromic Ink Shell, Organic Bio-Fleece)",
+        "Sizing (XS, S, M, L, XL, XXL, Custom Spec)",
+        "Color Activation Palette (Cold Cyan, Thermal Amber, Bio Olive, Void Black)",
+        "Sort By (Newest Drop, Eco Rating, Price)"
+      ],
+      "card_design": "Dark surface card with 1px border, heat state badge, eco-impact score (e.g. 98.4% Carbon Negative), quick 'Add to Cart' overlay, and dynamic thermochromic preview hover effect."
+    },
+    "Product_Detail_Page": {
+      "features": [
+        "Interactive Image Gallery with zoom & heat-map thermal camera view toggle",
+        "Interactive Sizing Chart & Custom Tech Pack Modal / Tab (Chest, Sleeve, Fiber density, Tensile strength)",
+        "Material Composition breakdown widget (e.g., 60% Raw Hemp, 35% Bamboo Rayon, 5% Thermochromic Micro-pigment)",
+        "Color Activation State selector buttons ([Ambient 20°C] / [Body-Heat 37°C])",
+        "Add to Cart with size/color selection and stock status counter"
+      ]
+    },
+    "Slide_Out_Cart_Drawer": {
+      "style": "Fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[#0F1117] border-l border-[#1E2330] p-6 shadow-2xl space-y-6 flex flex-col",
+      "features": "Item list with quantity modifiers, material breakdown summary, carbon offset calculator badge, and checkout CTA button leading to simulated checkout flow."
+    },
+    "Checkout_Flow": {
+      "modal_or_page": "Step-by-step checkout (1. Shipping Tech Pack -> 2. Eco Delivery Tier -> 3. Payment Protocol -> 4. Order Confirmation receipt with generated Tracking Hash)."
+    },
+    "About_Sustainability_Page": {
+      "content": "Interactive 'Eco Review' report, Lifecycle Analysis graph, Raw Hemp & Bamboo sourcing telemetry, Thermochromic non-toxic chemistry safety sheet, and Carbon Offset dashboard."
+    },
+    "User_Auth_And_Admin": {
+      "customer_auth": "Modal / tab for Login, Sign Up, Order History, Saved Tech Specs.",
+      "admin_panel": "Product Management dashboard (Add/Edit products, adjust Thermochromic ink sensitivity specs, inventory count, material certificates management)."
+    }
+  },
+  "media_assets": {
+    "hero_and_models": [
+      {
+        "url": "https://images.unsplash.com/photo-1761428961720-38db3883826b?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Hero Model / Techwear Cyber",
+        "description": "Futuristic mask and technical mesh apparel"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1784850758006-21742e6553ad?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "High Fashion Techwear Model",
+        "description": "Tactical streetwear jacket and balaclava"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1535732176766-a9a9513547e5?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Dark Streetwear Jacket",
+        "description": "Black tactical jacket street style"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1519783841896-ca022fb97cc2?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Cyberpunk Female Model",
+        "description": "Model in technical outerwear"
+      }
+    ],
+    "textiles_and_materials": [
+      {
+        "url": "https://images.unsplash.com/photo-1591625591034-75d303d2e1a4?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Organic Hemp Fiber Texture",
+        "description": "Natural unbleached hemp textile stack"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1715867125247-120c0fc4593b?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Bamboo Weave Fabric Close-up",
+        "description": "Dense gray bamboo microfiber weave"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1534639077088-d702bcf685e7?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "Raw Bio-Textile Rolls",
+        "description": "Sustainably harvested raw textile rolls"
+      }
+    ]
+  },
+  "testing_and_accessibility": {
+    "data_testid_convention": "All interactive elements MUST include data-testid in kebab-case. Examples: data-testid='nav-cart-button', data-testid='product-card-1', data-testid='add-to-cart-button', data-testid='filter-material-hemp', data-testid='temp-activation-toggle', data-testid='checkout-submit-btn', data-testid='admin-add-product-btn'.",
+    "contrast_standards": "Text colors `#F1F5F9` on `#07080C` or `#0F1117` ensure 12:1 APCA contrast ratio. Accent cyan `#00F2FE` and amber `#FF5E36` used strictly on dark backgrounds with high contrast text."
+  },
+  "instructions_to_main_agent": [
+    "Execute design with zero generic Vercel/Stripe template defaults. Build a distinct tactical bio-tech aesthetic for Telluric Gaia Apparel Lab Inc.",
+    "Implement the thermochromic color activation mechanism prominently: allow users to switch between Cold Ambient (Cyan #00F2FE) and Body Heat Activated (Amber #FF5E36) modes.",
+    "Build full functional capabilities: catalog filtering, dynamic product detail with custom tech packs and size charts, slide-out shopping cart, simulated checkout flow, eco review sustainability report, customer login/signup, and admin product management.",
+    "Ensure generous spacing, 1px crisp dark borders, glassmorphic header blur, loading skeleton state animations, and responsiveness across mobile and desktop.",
+    "All interactive elements must contain descriptive data-testid attributes."
+  ]
+}
