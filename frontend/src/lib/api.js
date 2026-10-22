@@ -3,7 +3,7 @@ import { INITIAL_PRODUCTS, INITIAL_USERS, PRODUCT_FILTERS } from "../data/mockDa
 export const API = "/api";
 
 const TOKEN_KEY = "tg_token";
-const PRODUCTS_KEY = "tg_products_v1";
+const PRODUCTS_KEY = "tg_products_v2";
 const USERS_KEY = "tg_users_v1";
 const CURRENT_USER_KEY = "tg_current_user_v1";
 const ORDERS_KEY = "tg_orders_v1";
@@ -233,15 +233,27 @@ function normalizePath(url = "") {
 
 function filterAndSortProducts(products, params = {}) {
   let list = [...products];
-  const { material, palette, size, is_new, featured, search, sort = "newest" } = params;
+  const { gender, category, subcategory, season, material, palette, size, is_new, featured, search, sort = "newest" } = params;
 
-  if (material) {
+  if (gender && gender !== "all") {
+    list = list.filter((p) => p.gender === gender || p.gender === "Unisex");
+  }
+  if (category && category !== "all") {
+    list = list.filter((p) => p.category === category);
+  }
+  if (subcategory && subcategory !== "all") {
+    list = list.filter((p) => p.subcategory === subcategory);
+  }
+  if (season && season !== "all") {
+    list = list.filter((p) => p.season === season);
+  }
+  if (material && material !== "all") {
     list = list.filter((p) => p.material === material);
   }
-  if (palette) {
+  if (palette && palette !== "all") {
     list = list.filter((p) => p.color_palette === palette);
   }
-  if (size) {
+  if (size && size !== "all") {
     list = list.filter((p) => Array.isArray(p.sizes) && p.sizes.includes(size));
   }
   if (is_new !== undefined && is_new !== null && is_new !== "") {
@@ -258,7 +270,10 @@ function filterAndSortProducts(products, params = {}) {
       (p) =>
         p.name?.toLowerCase().includes(q) ||
         p.description?.toLowerCase().includes(q) ||
-        p.material?.toLowerCase().includes(q)
+        p.material?.toLowerCase().includes(q) ||
+        p.category?.toLowerCase().includes(q) ||
+        p.subcategory?.toLowerCase().includes(q) ||
+        p.season?.toLowerCase().includes(q)
     );
   }
 

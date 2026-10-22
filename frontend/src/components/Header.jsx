@@ -14,10 +14,13 @@ import {
 } from "../components/ui/dropdown-menu";
 
 const NAV = [
-  { label: "Collections", to: "/" },
-  { label: "Catalog", to: "/catalog" },
-  { label: "Fitting Room", to: "/fitting-room" },
-  { label: "Lab Spec", to: "/about" },
+  { label: "Women", to: "/women" },
+  { label: "Men", to: "/men" },
+  { label: "Intimates & Lingerie", to: "/intimates" },
+  { label: "Activewear", to: "/activewear" },
+  { label: "Seasons", to: "/seasons" },
+  { label: "3D & Chakra Try-On", to: "/fitting-room" },
+  { label: "All Catalog", to: "/catalog" },
 ];
 
 export const Header = () => {

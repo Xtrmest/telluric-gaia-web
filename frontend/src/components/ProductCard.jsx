@@ -50,6 +50,16 @@ export const ProductCard = ({ product, index = 0 }) => {
                 New Drop
               </span>
             )}
+            {product.season && (
+              <span className="rounded-sm border border-[#2A3245] bg-[#07080C]/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-mono text-slate-200 backdrop-blur">
+                {product.season}
+              </span>
+            )}
+            {product.subcategory === "Sexy Lingerie" && (
+              <span className="rounded-sm bg-rose-500/90 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-mono text-white">
+                Luxury Lingerie
+              </span>
+            )}
           </div>
 
           <button
@@ -78,7 +88,9 @@ export const ProductCard = ({ product, index = 0 }) => {
             <h3 className="text-sm font-semibold leading-tight text-slate-100">{product.name}</h3>
             <span className="shrink-0 font-mono text-sm tabular-nums text-slate-200">${product.price.toFixed(0)}</span>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-mono text-slate-500">{product.material}</p>
+          <p className="font-mono text-[10px] uppercase tracking-mono text-slate-500">
+            {product.gender ? `${product.gender} · ` : ""}{product.material}
+          </p>
           <div className="flex items-center gap-1.5 pt-1">
             <Leaf className="h-3 w-3 text-emerald-400" />
             <span className="font-mono text-[10px] text-emerald-400/90">{product.eco_rating}% eco score</span>

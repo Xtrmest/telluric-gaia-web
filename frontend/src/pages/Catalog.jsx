@@ -18,7 +18,17 @@ export default function Catalog() {
   const navigate = useNavigate();
   const searchTerm = searchParams.get("search") || "";
   const [products, setProducts] = useState(null);
-  const [filters, setFilters] = useState({ materials: [], sizes: [], palettes: [] });
+  const [filters, setFilters] = useState({
+    genders: [],
+    categories: [],
+    seasons: [],
+    materials: [],
+    sizes: [],
+    palettes: [],
+  });
+  const [gender, setGender] = useState(searchParams.get("gender") || "all");
+  const [category, setCategory] = useState(searchParams.get("category") || "all");
+  const [season, setSeason] = useState(searchParams.get("season") || "all");
   const [material, setMaterial] = useState("all");
   const [size, setSize] = useState("all");
   const [palette, setPalette] = useState("all");
@@ -32,6 +42,9 @@ export default function Catalog() {
   const load = useCallback(async () => {
     setProducts(null);
     const params = { sort };
+    if (gender !== "all") params.gender = gender;
+    if (category !== "all") params.category = category;
+    if (season !== "all") params.season = season;
     if (material !== "all") params.material = material;
     if (size !== "all") params.size = size;
     if (palette !== "all") params.palette = palette;
@@ -39,26 +52,34 @@ export default function Catalog() {
     if (searchTerm) params.search = searchTerm;
     const { data } = await api.get("/products", { params });
     setProducts(data);
-  }, [material, size, palette, sort, searchParams, searchTerm]);
+  }, [gender, category, season, material, size, palette, sort, searchParams, searchTerm]);
 
   useEffect(() => {
     load();
   }, [load]);
 
   const reset = () => {
+    setGender("all");
+    setCategory("all");
+    setSeason("all");
     setMaterial("all");
     setSize("all");
     setPalette("all");
     setSort("newest");
   };
 
-  const activeCount = [material, size, palette].filter((v) => v !== "all").length;
+  const activeCount = [gender, category, season, material, size, palette].filter(
+    (v) => v !== "all"
+  ).length;
 
   const FilterControls = () => (
     <div className="space-y-5">
-      <FilterGroup label="Material Type" value={material} onChange={setMaterial} options={filters.materials} testid="filter-material" />
-      <FilterGroup label="Sizing" value={size} onChange={setSize} options={filters.sizes} testid="filter-size" />
-      <FilterGroup label="Colorway" value={palette} onChange={setPalette} options={filters.palettes} testid="filter-palette" />
+      <FilterGroup label="Department" value={gender} onChange={setGender} options={filters.genders || ["Women", "Men"]} testid="filter-gender" />
+      <FilterGroup label="Category" value={category} onChange={setCategory} options={filters.categories || []} testid="filter-category" />
+      <FilterGroup label="Season" value={season} onChange={setSeason} options={filters.seasons || ["Spring", "Summer", "Autumn", "Winter"]} testid="filter-season" />
+      <FilterGroup label="Material Type" value={material} onChange={setMaterial} options={filters.materials || []} testid="filter-material" />
+      <FilterGroup label="Sizing" value={size} onChange={setSize} options={filters.sizes || []} testid="filter-size" />
+      <FilterGroup label="Colorway" value={palette} onChange={setPalette} options={filters.palettes || []} testid="filter-palette" />
       {activeCount > 0 && (
         <Button variant="ghost" onClick={reset} className="w-full justify-start px-0 text-slate-400 hover:text-[color:var(--thermo)]" data-testid="filter-reset">
           <X className="mr-1.5 h-3.5 w-3.5" /> Clear filters
@@ -70,8 +91,12 @@ export default function Catalog() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:px-12" data-testid="catalog-page">
       <div className="flex flex-col gap-2 border-b border-[#1E2330] pb-8">
-        <span className="font-mono text-[11px] uppercase tracking-mono text-[color:var(--thermo)]">// Full Catalog</span>
-        <h1 className="font-display text-4xl font-extrabold uppercase tracking-tighter sm:text-5xl">The Grid</h1>
+        <span className="font-mono text-[11px] uppercase tracking-mono text-[color:var(--thermo)]">
+          // Full Four-Season Collection
+        </span>
+        <h1 className="font-display text-4xl font-extrabold uppercase tracking-tighter sm:text-5xl">
+          Bamboo &amp; Hemp Archive
+        </h1>
         {searchTerm ? (
           <div className="flex items-center gap-2" data-testid="catalog-search-banner">
             <span className="text-sm text-slate-400">Results for</span>
@@ -88,13 +113,13 @@ export default function Catalog() {
           </div>
         ) : (
           <p className="max-w-xl text-sm text-slate-400">
-            Filter by fabric science, fit spec, and colorway.
+            Explore generic Bamboo &amp; Hemp T-shirts, sweaters, pants, shorts, men&apos;s &amp; women&apos;s underwear, luxury sexy lingerie, and unbranded activewear across all four seasons.
           </p>
         )}
       </div>
 
       <div className="mt-8 flex gap-10">
-        <aside className="hidden w-60 shrink-0 lg:block">
+        <aside className="hidden w-64 shrink-0 lg:block">
           <div className="sticky top-24 space-y-5">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-mono text-slate-400">
               <SlidersHorizontal className="h-3.5 w-3.5" /> Filters
